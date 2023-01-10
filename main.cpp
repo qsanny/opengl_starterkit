@@ -79,11 +79,21 @@ void initMesh()
                             {1,0,0,10},
                             {3,0,0,14}};
 
-   ExMesh = new Mesh() ;
+   ExMesh = new Mesh();
     //***********************************************
     // AFAIRE
     // ici construire le maillage haldEdge "ExMesh" à partir des tableaux d'incides tabHe, tabFace, tabVertex
 
+   ExMesh->constMesh(tabHe, tabFace, tabVertex);
+
+   cout << "|    e          |           v Origin         |    F Incident  |     e Next     |  e Prev  \n" ;
+   cout << "__________________________________________________________________________________________\n" ;
+  
+    for(int i=0; i< NBHALFEDGES; i++){
+      cout << "|"<< &ExMesh->hedges[i]<< " ("<<ExMesh->hedges[i].name <<") | " << &ExMesh->hedges[i].vertex << " : " << "("<< ExMesh->hedges[i].vertex->x << ", " << ExMesh->hedges[i].vertex->y <<", "<< ExMesh->hedges[i].vertex->z <<") | "<< &ExMesh->hedges[i].face << " | "<< &ExMesh->hedges[i].heNext << " | "<< &ExMesh->hedges[i].hePrev << " \n";
+   }
+
+   
 
     //***********************************************
 }
@@ -129,6 +139,15 @@ void displayHalfEdge(void)
     //**********************************************************************
     // AFAIRE
     // Écrire la visualisation du maillage "ExMesh
+
+
+    glColor3f(1.0, 0.5, 0.0);
+
+    glBegin(GL_POLYGON);
+    for( int i = 0 ; i < NBVERTICES ; i++ ){
+      glVertex3f(ExMesh->vertices[i].x, ExMesh->vertices[i].y, ExMesh->vertices[i].z);
+    }
+    glEnd();
 
     //**********************************************************************
 

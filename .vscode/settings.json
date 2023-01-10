@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "memory_resource": "cpp",
+        "memory": "cpp",
+        "ostream": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

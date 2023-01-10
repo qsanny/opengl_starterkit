@@ -23,6 +23,7 @@ public:
         vector <Face> faces;
         Mesh();
         ~Mesh();
+        void constMesh(int tabHe[][5], int tabFace[], int tabVertex[][4]);
 //MeshAttribut attributs ;
 };
 
